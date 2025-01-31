@@ -10,8 +10,10 @@ services:
         - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - ./ny_taxi_postgres_data:/var/lib/postgresql/data
+      # Change this to whatever you want to name the volume
     ports:
       - "5432:5432"
 
 volumes:
-  ny_taxi_postgres_data: 
+  ny_taxi_postgres_data:
+  # Change this to whatever you want to name the volume

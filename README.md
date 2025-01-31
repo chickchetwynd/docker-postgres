@@ -5,6 +5,7 @@ This repository contains a Dockerfile to quickly set up a PostgreSQL database.
 ## Prerequisites
 
 - Docker installed and running
+- Docker Compose installed
 
 ## Setup Instructions
 
@@ -20,20 +21,11 @@ This repository contains a Dockerfile to quickly set up a PostgreSQL database.
    ```
    Then edit `.env.local` with your desired values
 
-3. Build the Docker image:
+3. Start the database:
    ```bash
-   docker build -t ny-taxi-postgres --build-arg POSTGRES_USER=$(grep POSTGRES_USER .env.local | cut -d '=' -f2) \
-       --build-arg POSTGRES_PASSWORD=$(grep POSTGRES_PASSWORD .env.local | cut -d '=' -f2) \
-       --build-arg POSTGRES_DB=$(grep POSTGRES_DB .env.local | cut -d '=' -f2) .
+   docker-compose up -d
    ```
-
-4. Run the container:
-   ```bash
-   docker run -d \
-       -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
-       -p 5432:5432 \
-       ny-taxi-postgres
-   ```
+   This will automatically create a directory called `ny_taxi_postgres_data`  in your project root to persist the database data.
 
 ## What this does
 
@@ -42,8 +34,15 @@ Creates a PostgreSQL database with:
 - Password: from .env.local
 - Database name: from .env.local
 - Port: 5432
-- Data persisted in `./ny_taxi_postgres_data/`
+- Data persisted in `./ny_taxi_postgres_data/` (automatically created)
 
 ## Security Note
 
-Make sure to never commit your `.env.local` file to version control. It's already added to `.gitignore` for your protection. 
+Make sure to never commit your `.env.local` file or the `ny_taxi_postgres_data` directory to version control. Both are already added to `.gitignore` for your protection.
+
+## Stopping the Database
+
+To stop the database:
+```bash
+docker-compose down
+``` 

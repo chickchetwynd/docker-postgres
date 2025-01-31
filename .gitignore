@@ -1,2 +1,10 @@
+# Environment files
 .env.local
-ny_taxi_postgres_data/ 
+
+# Ignore data directories
+ny_taxi_postgres_data/
+data/
+
+# Common system files
+.DS_Store
+*.log 
