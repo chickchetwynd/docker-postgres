@@ -30,9 +30,9 @@ This repository contains a Dockerfile to quickly set up a PostgreSQL database.
 ## What this does
 
 Creates a PostgreSQL database with:
-- Username: from .env.local
-- Password: from .env.local
-- Database name: from .env.local
+- Username: from .env
+- Password: from .env
+- Database name: from .env
 - Port: 5432
 - Data persisted in `./ny_taxi_postgres_data/` (automatically created)
 
