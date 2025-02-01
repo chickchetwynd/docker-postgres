@@ -17,9 +17,9 @@ This repository contains a Dockerfile to quickly set up a PostgreSQL database.
 
 2. Create your environment file:
    ```bash
-   cp .env.template .env.local
+   cp .env.template .env
    ```
-   Then edit `.env.local` with your desired values
+   Then edit `.env` with your desired values
 
 3. Start the database:
    ```bash
@@ -38,7 +38,7 @@ Creates a PostgreSQL database with:
 
 ## Security Note
 
-Make sure to never commit your `.env.local` file or the `ny_taxi_postgres_data` directory to version control. Both are already added to `.gitignore` for your protection.
+Make sure to never commit your `.env` file or the `ny_taxi_postgres_data` directory to version control. Both are already added to `.gitignore` for your protection.
 
 ## Stopping the Database
 
