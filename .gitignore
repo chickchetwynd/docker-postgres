@@ -1,5 +1,5 @@
 # Environment files
-.env.local
+.env
 
 # Ignore data directories
 ny_taxi_postgres_data/
